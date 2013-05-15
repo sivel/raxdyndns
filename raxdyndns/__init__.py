@@ -119,7 +119,7 @@ class RaxDynDns(object):
             try:
                 socket.inet_pton(af_types[ip_type], ip)
             except socket.error:
-                pass
+                continue
             else:
                 ip_addresses[ip_type] = ip
 
