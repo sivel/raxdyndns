@@ -252,7 +252,8 @@ def main():
         if ip_addresses:
             rdyn.update_records(ip_addresses)
             rdyn.save_cache()
-    except Exception as e:
+    except:
+        e = sys.exc_info()[0]
         rdyn.logger.error(e)
         raise SystemExit(e)
 
