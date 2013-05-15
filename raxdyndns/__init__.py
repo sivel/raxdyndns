@@ -110,14 +110,11 @@ class RaxDynDns(object):
         for ip_type in ip_addresses:
             try:
                 r = requests.get('http://%s.icanhazip.com/' % ip_type)
-                try:
-                    r.raise_for_status()
-                except:
-                    continue
-                else:
-                    ip = r.text.strip()
+                r.raise_for_status()
             except:
                 continue
+            else:
+                ip = r.text.strip()
 
             try:
                 socket.inet_pton(af_types[ip_type], ip)
