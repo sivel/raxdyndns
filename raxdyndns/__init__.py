@@ -178,12 +178,7 @@ class RaxDynDns(object):
             else:
                 self.logger.info('Updating %s record for %s' %
                                  (record_types[ip_type], dns_info['host']))
-                if isinstance(dns_info[ip_type], dict):
-                    record_obj = dns.CloudDNSRecord(dns, dns_info[ip_type],
-                                                    loaded=False)
-                    dns_info['domain'].update_record(record_obj, data=ip)
-                else:
-                    dns_info[ip_type].update(data=ip)
+                dns_info[ip_type].update(data=ip)
 
     def find_dns(self):
         domain = self.config_get('domain')
