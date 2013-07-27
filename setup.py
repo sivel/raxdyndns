@@ -17,13 +17,13 @@
 
 from setuptools import setup, find_packages
 
-dependencies = ['requests', 'pyrax', 'keyring', 'PyYAML']
+dependencies = ['requests', 'pyrax>=1.4.5', 'keyring', 'PyYAML']
 
 setup(
     name='raxdyndns',
     description='Dynamic DNS Update utility using Rackspace Cloud DNS',
     keywords='rackspace cloud dns dyndns',
-    version='0.0.1',
+    version='0.0.2',
     author='Matt Martz',
     author_email='matt@sivel.net',
     install_requires=dependencies,

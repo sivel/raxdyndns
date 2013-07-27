@@ -157,6 +157,7 @@ class RaxDynDns(object):
         if apikey is None:
             raise exc.NoApiKey('An API key is not configured in %s' %
                                self.config_file)
+        pyrax.set_setting('identity_type', 'rackspace')
         pyrax.set_credentials(username, apikey)
         self.dns = pyrax.cloud_dns
         dns_info = self.find_dns()
